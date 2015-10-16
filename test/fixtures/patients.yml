@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  surname: MyString
+  other_names: MyString
+  gender: MyString
+  age: MyString
+  address: MyString
+  phone: MyString
+  state_id: 
+  lga_id: 
+  intervention_state: MyString
+  next_of_kin: MyString
+  relationship: MyString
+  nok_phone: MyString
+  nok_address: MyString
+  complaints: MyText
+
+two:
+  first_name: MyString
+  surname: MyString
+  other_names: MyString
+  gender: MyString
+  age: MyString
+  address: MyString
+  phone: MyString
+  state_id: 
+  lga_id: 
+  intervention_state: MyString
+  next_of_kin: MyString
+  relationship: MyString
+  nok_phone: MyString
+  nok_address: MyString
+  complaints: MyText

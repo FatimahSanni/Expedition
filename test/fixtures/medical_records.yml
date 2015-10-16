@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  complaints: MyText
+  pre_lva: MyString
+  pre_rva: MyString
+  diagnosis_id: 
+  eye: MyString
+  treatment_id: 
+  booked: false
+
+two:
+  complaints: MyText
+  pre_lva: MyString
+  pre_rva: MyString
+  diagnosis_id: 
+  eye: MyString
+  treatment_id: 
+  booked: false

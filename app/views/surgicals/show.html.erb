@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Surgery date:</strong>
+  <%= @surgical.surgery_date %>
+</p>
+
+<p>
+  <strong>Surgery:</strong>
+  <%= @surgical.surgery %>
+</p>
+
+<p>
+  <strong>Eye:</strong>
+  <%= @surgical.eye %>
+</p>
+
+<p>
+  <strong>Average k:</strong>
+  <%= @surgical.average_k %>
+</p>
+
+<p>
+  <strong>Axial length:</strong>
+  <%= @surgical.axial_length %>
+</p>
+
+<p>
+  <strong>Iol power:</strong>
+  <%= @surgical.iol_power %>
+</p>
+
+<p>
+  <strong>Iol insertion:</strong>
+  <%= @surgical.iol_insertion %>
+</p>
+
+<p>
+  <strong>Complication:</strong>
+  <%= @surgical.complication %>
+</p>
+
+<%= link_to 'Edit', edit_surgical_path(@surgical) %> |
+<%= link_to 'Back', surgicals_path %>

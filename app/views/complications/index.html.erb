@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Complications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @complications.each do |complication| %>
+      <tr>
+        <td><%= complication.name %></td>
+        <td><%= link_to 'Show', complication %></td>
+        <td><%= link_to 'Edit', edit_complication_path(complication) %></td>
+        <td><%= link_to 'Destroy', complication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Complication', new_complication_path %>

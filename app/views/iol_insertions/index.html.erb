@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Iol Insertions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @iol_insertions.each do |iol_insertion| %>
+      <tr>
+        <td><%= iol_insertion.name %></td>
+        <td><%= link_to 'Show', iol_insertion %></td>
+        <td><%= link_to 'Edit', edit_iol_insertion_path(iol_insertion) %></td>
+        <td><%= link_to 'Destroy', iol_insertion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Iol insertion', new_iol_insertion_path %>

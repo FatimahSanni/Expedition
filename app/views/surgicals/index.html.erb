@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Surgicals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Surgery date</th>
+      <th>Surgery</th>
+      <th>Eye</th>
+      <th>Average k</th>
+      <th>Axial length</th>
+      <th>Iol power</th>
+      <th>Iol insertion</th>
+      <th>Complication</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @surgicals.each do |surgical| %>
+      <tr>
+        <td><%= surgical.surgery_date %></td>
+        <td><%= surgical.surgery %></td>
+        <td><%= surgical.eye %></td>
+        <td><%= surgical.average_k %></td>
+        <td><%= surgical.axial_length %></td>
+        <td><%= surgical.iol_power %></td>
+        <td><%= surgical.iol_insertion %></td>
+        <td><%= surgical.complication %></td>
+        <td><%= link_to 'Show', surgical %></td>
+        <td><%= link_to 'Edit', edit_surgical_path(surgical) %></td>
+        <td><%= link_to 'Destroy', surgical, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Surgical', new_surgical_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Complaints:</strong>
+  <%= @medical_record.complaints %>
+</p>
+
+<p>
+  <strong>Pre lva:</strong>
+  <%= @medical_record.pre_lva %>
+</p>
+
+<p>
+  <strong>Pre rva:</strong>
+  <%= @medical_record.pre_rva %>
+</p>
+
+<p>
+  <strong>Diagnosis:</strong>
+  <%= @medical_record.diagnosis %>
+</p>
+
+<p>
+  <strong>Eye:</strong>
+  <%= @medical_record.eye %>
+</p>
+
+<p>
+  <strong>Treatment:</strong>
+  <%= @medical_record.treatment %>
+</p>
+
+<p>
+  <strong>Booked:</strong>
+  <%= @medical_record.booked %>
+</p>
+
+<%= link_to 'Edit', edit_medical_record_path(@medical_record) %> |
+<%= link_to 'Back', medical_records_path %>

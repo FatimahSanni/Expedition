@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @patient.first_name %>
+</p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @patient.surname %>
+</p>
+
+<p>
+  <strong>Other names:</strong>
+  <%= @patient.other_names %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @patient.gender %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @patient.age %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @patient.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @patient.phone %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @patient.state %>
+</p>
+
+<p>
+  <strong>Lga:</strong>
+  <%= @patient.lga %>
+</p>
+
+<p>
+  <strong>Intervention state:</strong>
+  <%= @patient.intervention_state %>
+</p>
+
+<p>
+  <strong>Next of kin:</strong>
+  <%= @patient.next_of_kin %>
+</p>
+
+<p>
+  <strong>Relationship:</strong>
+  <%= @patient.relationship %>
+</p>
+
+<p>
+  <strong>Nok phone:</strong>
+  <%= @patient.nok_phone %>
+</p>
+
+<p>
+  <strong>Nok address:</strong>
+  <%= @patient.nok_address %>
+</p>
+
+<p>
+  <strong>Complaints:</strong>
+  <%= @patient.complaints %>
+</p>
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>

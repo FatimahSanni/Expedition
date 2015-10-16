@@ -1,0 +1,18 @@
+<%= simple_form_for(@surgical) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :surgery_date %>
+    <%= f.association :surgery %>
+    <%= f.input :eye %>
+    <%= f.input :average_k %>
+    <%= f.input :axial_length %>
+    <%= f.association :iol_power %>
+    <%= f.association :iol_insertion %>
+    <%= f.association :complication %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
