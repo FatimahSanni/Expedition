@@ -28,8 +28,8 @@ class IolPowersController < ApplicationController
 
     respond_to do |format|
       if @iol_power.save
-        format.html { redirect_to @iol_power, notice: 'Iol power was successfully created.' }
-        format.json { render :show, status: :created, location: @iol_power }
+        format.html { redirect_to iol_powers_url, notice: 'Iol power was successfully created.' }
+        format.json { render :index, status: :created, location: @iol_power }
       else
         format.html { render :new }
         format.json { render json: @iol_power.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class IolPowersController < ApplicationController
   def update
     respond_to do |format|
       if @iol_power.update(iol_power_params)
-        format.html { redirect_to @iol_power, notice: 'Iol power was successfully updated.' }
-        format.json { render :show, status: :ok, location: @iol_power }
+        format.html { redirect_to iol_powers_url, notice: 'Iol power was successfully updated.' }
+        format.json { render :index, status: :ok, location: @iol_power }
       else
         format.html { render :edit }
         format.json { render json: @iol_power.errors, status: :unprocessable_entity }

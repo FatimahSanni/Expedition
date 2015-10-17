@@ -2,13 +2,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.association :patient, label_method: :full_name %>
     <%= f.input :surgery_date %>
     <%= f.association :surgery %>
-    <%= f.input :eye %>
+    <%= f.association :surgeon, label_method: :name %>
+    <%= f.input :eye, collection: ["RE", "LE", "Both"] %>
     <%= f.input :average_k %>
     <%= f.input :axial_length %>
-    <%= f.association :iol_power %>
-    <%= f.association :iol_insertion %>
+    <%= f.association :iol_insertion, label_method: :name, label: "IOL Insertion" %>
+    <%= f.association :iol_power, label_method: :power, label: "IOL Power" %>
+    <%= f.input :post_rva, collection: VisualAcuity.all, label_method: :va, value_method: :va, label: "Post-op VA (RE)"  %>
+    <%= f.input :post_lva, collection: VisualAcuity.all, label_method: :va, value_method: :va, label: "Post-op VA (LE)" %>
     <%= f.association :complication %>
   </div>
 

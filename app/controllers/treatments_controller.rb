@@ -28,8 +28,8 @@ class TreatmentsController < ApplicationController
 
     respond_to do |format|
       if @treatment.save
-        format.html { redirect_to @treatment, notice: 'Treatment was successfully created.' }
-        format.json { render :show, status: :created, location: @treatment }
+        format.html { redirect_to treatments_url, notice: 'Treatment was successfully created.' }
+        format.json { render :index, status: :created, location: @treatment }
       else
         format.html { render :new }
         format.json { render json: @treatment.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class TreatmentsController < ApplicationController
   def update
     respond_to do |format|
       if @treatment.update(treatment_params)
-        format.html { redirect_to @treatment, notice: 'Treatment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @treatment }
+        format.html { redirect_to treatments_url, notice: 'Treatment was successfully updated.' }
+        format.json { render :index, status: :ok, location: @treatment }
       else
         format.html { render :edit }
         format.json { render json: @treatment.errors, status: :unprocessable_entity }

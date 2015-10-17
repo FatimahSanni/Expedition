@@ -28,8 +28,8 @@ class VisualAcuitiesController < ApplicationController
 
     respond_to do |format|
       if @visual_acuity.save
-        format.html { redirect_to @visual_acuity, notice: 'Visual acuity was successfully created.' }
-        format.json { render :show, status: :created, location: @visual_acuity }
+        format.html { redirect_to visual_acuities_url, notice: 'Visual acuity was successfully created.' }
+        format.json { render :index, status: :created, location: @visual_acuity }
       else
         format.html { render :new }
         format.json { render json: @visual_acuity.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class VisualAcuitiesController < ApplicationController
   def update
     respond_to do |format|
       if @visual_acuity.update(visual_acuity_params)
-        format.html { redirect_to @visual_acuity, notice: 'Visual acuity was successfully updated.' }
-        format.json { render :show, status: :ok, location: @visual_acuity }
+        format.html { redirect_to visual_acuities_url, notice: 'Visual acuity was successfully updated.' }
+        format.json { render :index, status: :ok, location: @visual_acuity }
       else
         format.html { render :edit }
         format.json { render json: @visual_acuity.errors, status: :unprocessable_entity }

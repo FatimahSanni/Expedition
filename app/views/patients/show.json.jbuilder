@@ -1,1 +1,1 @@
-json.extract! @patient, :id, :first_name, :surname, :other_names, :gender, :age, :address, :phone, :state_id, :lga_id, :intervention_state, :next_of_kin, :relationship, :nok_phone, :nok_address, :complaints, :created_at, :updated_at
+json.extract! @patient, :id, :first_name, :surname, :other_names, :gender, :age, :address, :phone, :state_id, :lga_id, :intervention_state, :next_of_kin, :relationship, :nok_phone, :nok_address, :created_at, :updated_at

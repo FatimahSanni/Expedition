@@ -28,8 +28,8 @@ class IolInsertionsController < ApplicationController
 
     respond_to do |format|
       if @iol_insertion.save
-        format.html { redirect_to @iol_insertion, notice: 'Iol insertion was successfully created.' }
-        format.json { render :show, status: :created, location: @iol_insertion }
+        format.html { redirect_to iol_insertions_url, notice: 'Iol insertion was successfully created.' }
+        format.json { render :index, status: :created, location: @iol_insertion }
       else
         format.html { render :new }
         format.json { render json: @iol_insertion.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class IolInsertionsController < ApplicationController
   def update
     respond_to do |format|
       if @iol_insertion.update(iol_insertion_params)
-        format.html { redirect_to @iol_insertion, notice: 'Iol insertion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @iol_insertion }
+        format.html { redirect_to iol_insertions_url, notice: 'Iol insertion was successfully updated.' }
+        format.json { render :index, status: :ok, location: @iol_insertion }
       else
         format.html { render :edit }
         format.json { render json: @iol_insertion.errors, status: :unprocessable_entity }

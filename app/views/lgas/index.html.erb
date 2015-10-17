@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Lgas</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -15,7 +13,7 @@
     <% @lgas.each do |lga| %>
       <tr>
         <td><%= lga.name %></td>
-        <td><%= lga.state %></td>
+        <td><%= lga.state.name %></td>
         <td><%= link_to 'Show', lga %></td>
         <td><%= link_to 'Edit', edit_lga_path(lga) %></td>
         <td><%= link_to 'Destroy', lga, method: :delete, data: { confirm: 'Are you sure?' } %></td>

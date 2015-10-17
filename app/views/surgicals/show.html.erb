@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
-
+<p>
+  <strong>Patient:</strong>
+  <%= @surgical.patient.full_name %>
+</p>
 <p>
   <strong>Surgery date:</strong>
   <%= @surgical.surgery_date %>
@@ -7,12 +9,29 @@
 
 <p>
   <strong>Surgery:</strong>
-  <%= @surgical.surgery %>
+  <%= @surgical.surgery.name %>
+</p>
+
+<p>
+  <strong>Surgeon:</strong>
+  <% if @surgical.surgeon %>
+  <%= @surgical.surgeon.name %>
+  <% end %>
 </p>
 
 <p>
   <strong>Eye:</strong>
   <%= @surgical.eye %>
+</p>
+
+<p>
+  <strong>Post-op VA (RE):</strong>
+  <%= @surgical.post_rva %>
+</p>
+
+<p>
+  <strong>Post-op VA (LE):</strong>
+  <%= @surgical.post_lva %>
 </p>
 
 <p>
@@ -26,18 +45,24 @@
 </p>
 
 <p>
-  <strong>Iol power:</strong>
-  <%= @surgical.iol_power %>
+  <strong>IOL Power:</strong>
+  <% if @surgical.iol_power %>
+  <%= @surgical.iol_power.power %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Iol insertion:</strong>
-  <%= @surgical.iol_insertion %>
+  <% if @surgical.iol_insertion %>
+  <strong>IOL Insertion:</strong>
+  <%= @surgical.iol_insertion.name %>
+  <% end %>
 </p>
 
 <p>
+  <% if @surgical.complication %>
   <strong>Complication:</strong>
-  <%= @surgical.complication %>
+  <%= @surgical.complication.name %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_surgical_path(@surgical) %> |

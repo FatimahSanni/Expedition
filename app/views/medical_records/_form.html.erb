@@ -2,11 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.association :patient, label_method: :full_name %>
     <%= f.input :complaints %>
-    <%= f.input :pre_lva %>
-    <%= f.input :pre_rva %>
+    <%= f.input :pre_rva, collection: VisualAcuity.all, label_method: :va, value_method: :va, label: "Pre-op VA(RE)" %>
+    <%= f.input :pre_lva, collection: VisualAcuity.all, label_method: :va, value_method: :va, label: "Pre-op VA(LE)" %>
     <%= f.association :diagnosis %>
-    <%= f.input :eye %>
+    <%= f.input :eye, collection: ["RE", "LE", "Both"] %>
     <%= f.association :treatment %>
     <%= f.input :booked %>
   </div>

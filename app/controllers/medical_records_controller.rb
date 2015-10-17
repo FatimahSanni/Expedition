@@ -4,7 +4,15 @@ class MedicalRecordsController < ApplicationController
   # GET /medical_records
   # GET /medical_records.json
   def index
-    @medical_records = MedicalRecord.all
+    @search = MedicalRecord.search(params[:q])
+    @medical_records = @search.result
+    @search.build_condition
+
+    respond_to do |format|
+      format.html
+      format.json
+      format.csv { send_data @medical_records.to_csv, filename: "medical_records-#{Date.today}.csv" }
+    end
   end
 
   # GET /medical_records/1
@@ -69,6 +77,6 @@ class MedicalRecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medical_record_params
-      params.require(:medical_record).permit(:complaints, :pre_lva, :pre_rva, :diagnosis_id, :eye, :treatment_id, :booked)
+      params.require(:medical_record).permit(:patient_id, :complaints, :pre_lva, :pre_rva, :diagnosis_id, :eye, :treatment_id, :booked)
     end
 end

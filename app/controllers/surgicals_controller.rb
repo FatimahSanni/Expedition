@@ -4,7 +4,15 @@ class SurgicalsController < ApplicationController
   # GET /surgicals
   # GET /surgicals.json
   def index
-    @surgicals = Surgical.all
+    @search = Surgical.search(params[:q])
+    @surgicals = @search.result
+    @search.build_condition
+
+    respond_to do |format|
+      format.html
+      format.json
+      format.csv { send_data @surgicals.to_csv, filename: "surgicals-#{Date.today}.csv" }
+    end
   end
 
   # GET /surgicals/1
@@ -69,6 +77,6 @@ class SurgicalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def surgical_params
-      params.require(:surgical).permit(:surgeon_id, :surgery_date, :surgery_id, :eye, :average_k, :axial_length, :iol_power_id, :iol_insertion_id, :complication_id)
+      params.require(:surgical).permit(:post_rva, :post_lva, :patient_id, :surgeon_id, :surgery_date, :surgery_id, :eye, :average_k, :axial_length, :iol_power_id, :iol_insertion_id, :complication_id)
     end
 end

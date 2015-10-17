@@ -4,7 +4,18 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+    @search = Patient.search(params[:q])
+    @patients = @search.result
+    @search.build_condition
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @patients.to_json(:include => { :state => { :only => :name } }) }
+      format.csv { send_data @patients.to_csv, filename: "patients-#{Date.today}.csv" }
+      format.pdf do
+        render pdf: "patients" , template: 'patients/index.html.erb'  # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /patients/1
@@ -69,6 +80,6 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:first_name, :surname, :other_names, :gender, :age, :address, :phone, :state_id, :lga_id, :intervention_state, :next_of_kin, :relationship, :nok_phone, :nok_address, :complaints)
+      params.require(:patient).permit(:town, :first_name, :surname, :other_names, :gender, :age, :address, :phone, :state_id, :lga_id, :intervention_state, :next_of_kin, :relationship, :nok_phone, :nok_address)
     end
 end

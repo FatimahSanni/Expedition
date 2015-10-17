@@ -1,13 +1,33 @@
-<p id="notice"><%= notice %></p>
+<br>
+<%= search_form_for @search do |f| %>
+<%= f.condition_fields do |c| %>
+<div class="form-inline">
+  <%= c.attribute_fields do |a| %>
+    <%= a.attribute_select associations: [:patient] %>
+  <% end %>
+  <%= c.predicate_select %>
+  <%= c.value_fields do |v| %>
+    <%= v.text_field :value, class: "form-control" %>
+    <% end %>
+</div> <br>
+<% end %>
+<div class="form-group">
+  <%= f.submit "Search", class: "btn btn-success" %>
+</div>
+<% end %>
+<div>
+  Total: <%= @medical_records.all.count %>
+</div>
+<hr>
+<%= link_to 'New Medical record', new_medical_record_path %>
 
 <h1>Listing Medical Records</h1>
-
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Complaints</th>
-      <th>Pre lva</th>
-      <th>Pre rva</th>
+      <th>Patient</th>
+      <th>Pre-op VA (RE)</th>
+      <th>Pre-op VA (LE)</th>
       <th>Diagnosis</th>
       <th>Eye</th>
       <th>Treatment</th>
@@ -19,12 +39,12 @@
   <tbody>
     <% @medical_records.each do |medical_record| %>
       <tr>
-        <td><%= medical_record.complaints %></td>
-        <td><%= medical_record.pre_lva %></td>
+        <td><%= medical_record.patient.full_name %></td>
         <td><%= medical_record.pre_rva %></td>
-        <td><%= medical_record.diagnosis %></td>
+        <td><%= medical_record.pre_lva %></td>
+        <td><%= medical_record.diagnosis.name %></td>
         <td><%= medical_record.eye %></td>
-        <td><%= medical_record.treatment %></td>
+        <td><%= medical_record.treatment.name %></td>
         <td><%= medical_record.booked %></td>
         <td><%= link_to 'Show', medical_record %></td>
         <td><%= link_to 'Edit', edit_medical_record_path(medical_record) %></td>
@@ -36,4 +56,4 @@
 
 <br>
 
-<%= link_to 'New Medical record', new_medical_record_path %>
+

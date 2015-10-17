@@ -1,23 +1,25 @@
-<p id="notice"><%= notice %></p>
-
+<p>
+  <strong>Patient:</strong>
+  <%= @medical_record.patient.full_name %>
+</p>
 <p>
   <strong>Complaints:</strong>
-  <%= @medical_record.complaints %>
+  <%= simple_format(@medical_record.complaints) %>
 </p>
 
 <p>
-  <strong>Pre lva:</strong>
-  <%= @medical_record.pre_lva %>
-</p>
-
-<p>
-  <strong>Pre rva:</strong>
+  <strong>Pre-op VA(RE) :</strong>
   <%= @medical_record.pre_rva %>
 </p>
 
 <p>
+  <strong>Pre-op VA(LE):</strong>
+  <%= @medical_record.pre_lva %>
+</p>
+
+<p>
   <strong>Diagnosis:</strong>
-  <%= @medical_record.diagnosis %>
+  <%= @medical_record.diagnosis.name %>
 </p>
 
 <p>
@@ -27,7 +29,7 @@
 
 <p>
   <strong>Treatment:</strong>
-  <%= @medical_record.treatment %>
+  <%= @medical_record.treatment.name %>
 </p>
 
 <p>
