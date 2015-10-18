@@ -44,11 +44,9 @@
         <td><%= patient.gender %></td>
         <td><%= patient.age %></td>
         <td><%= patient.phone %></td>
-        <td><%= patient.state.name %></td>
+        <td><%= patient.state %></td>
         <td>
-          <% ! if patient.lga.present? %>
-          <%= patient.lga.name %>
-        <% end %>
+          <%= patient.lga %>
         </td>
         <td><%= patient.intervention_state %></td>
         <td><%= patient.created_at.strftime("%d/%m/%Y") %></td>

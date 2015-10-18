@@ -1,3 +1,3 @@
 class Treatment < ActiveRecord::Base
-	has_many :surgical, dependent: :destroy
+	validates :name, presence: true
 end

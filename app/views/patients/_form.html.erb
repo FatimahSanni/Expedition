@@ -9,8 +9,8 @@
     <%= f.input :age %>
     <%= f.input :address %>
     <%= f.input :phone %>
-    <%= f.association :state, label_method: :name, label: "State of Residence" %>
-    <%= f.association :lga, label_method: :name %>
+    <%= f.input :state, collection: State.all, label_method: :name, value_method: :name, label: "State of Residence" %>
+    <%= f.input :lga, collection: Lga.all, label_method: :name, value_method: :name %>
     <%= f.input :town %>
     <%= f.input :intervention_state, collection: State.order(:name), value_method: :name, prompt: "Select State" %>
     <%= f.input :next_of_kin %>

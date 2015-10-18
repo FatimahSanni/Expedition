@@ -9,13 +9,13 @@
 
 <p>
   <strong>Surgery:</strong>
-  <%= @surgical.surgery.name %>
+  <%= @surgical.surgery %>
 </p>
 
 <p>
   <strong>Surgeon:</strong>
   <% if @surgical.surgeon %>
-  <%= @surgical.surgeon.name %>
+  <%= @surgical.surgeon %>
   <% end %>
 </p>
 
@@ -46,23 +46,17 @@
 
 <p>
   <strong>IOL Power:</strong>
-  <% if @surgical.iol_power %>
-  <%= @surgical.iol_power.power %>
-  <% end %>
+  <%= @surgical.iol_power %>
 </p>
 
 <p>
-  <% if @surgical.iol_insertion %>
   <strong>IOL Insertion:</strong>
-  <%= @surgical.iol_insertion.name %>
-  <% end %>
+  <%= @surgical.iol_insertion %>
 </p>
 
 <p>
-  <% if @surgical.complication %>
   <strong>Complication:</strong>
-  <%= @surgical.complication.name %>
-  <% end %>
+  <%= @surgical.complication %>
 </p>
 
 <%= link_to 'Edit', edit_surgical_path(@surgical) %> |

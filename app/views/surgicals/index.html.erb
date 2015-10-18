@@ -45,28 +45,20 @@
       <tr>
         <td><%= surgical.patient.full_name %></td>
         <td><%= surgical.surgery_date %></td>
-        <td><%= surgical.surgery.name %></td>
+        <td><%= surgical.surgery %></td>
         <td>
-          <% ! if surgical.surgeon %>
-          <%= surgical.surgeon.name %>
-          <% end %>
+          <%= surgical.surgeon %>
         </td>
         <td><%= surgical.eye %></td>
         <td><%= surgical.average_k %></td>
         <td><%= surgical.axial_length %></td>
         <td>
-          <% ! if surgical.iol_insertion.present? %>
-          <%= surgical.iol_insertion.name %>
-          <% end %>
+          <%= surgical.iol_insertion %>
         </td>
         <td>
-          <% ! if surgical.iol_insertion.present? %>
-          <%= surgical.iol_power.power %></td>
-          <% end %>
+          <%= surgical.iol_power %></td>
         <td>
-          <% ! if surgical.iol_insertion.present? %>
-          <%= surgical.complication.name %>
-          <% end %>
+          <%= surgical.complication %>
         </td>
         <td><%= link_to 'Show', surgical %></td>
         <td><%= link_to 'Edit', edit_surgical_path(surgical) %></td>

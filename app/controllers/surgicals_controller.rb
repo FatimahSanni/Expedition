@@ -77,6 +77,6 @@ class SurgicalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def surgical_params
-      params.require(:surgical).permit(:post_rva, :post_lva, :patient_id, :surgeon_id, :surgery_date, :surgery_id, :eye, :average_k, :axial_length, :iol_power_id, :iol_insertion_id, :complication_id)
+      params.require(:surgical).permit(:post_rva, :post_lva, :patient_id, :surgeon, :surgery_date, :surgery, :eye, :average_k, :axial_length, :iol_power, :iol_insertion, :complication)
     end
 end
