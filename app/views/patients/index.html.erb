@@ -1,43 +1,46 @@
+
 <br>
 <%= search_form_for @search do |f| %>
 <%= f.condition_fields do |c| %>
 <div class="form-inline">
   <%= c.attribute_fields do |a| %>
-    <%= a.attribute_select %>
+  <%= a.attribute_select %>
   <% end %>
   <%= c.predicate_select %>
   <%= c.value_fields do |v| %>
-    <%= v.text_field :value, class: "form-control" %>
-    <% end %>
+  <%= v.text_field :value, class: "form-control" %>
+  <% end %>
 </div> <br>
 <% end %>
-  <div class="form-group">
-    <%= f.submit "Search", class: "btn btn-success" %>
+<div class="form-group">
+  <%= f.submit "Search", class: "btn btn-success" %>
+  <%= link_to "Export to csv", request.parameters.merge({format: :csv}), class: "btn btn-danger" %>
+  <span class="pull-right"><%= link_to 'Add New Patient', new_patient_path, class: "btn btn-danger" %></span>
+</div>
+<% end %>
+<br>
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <strong>All Patients</strong> <span class="pull-right"><strong>Total:</strong> <%= @patients.count %></span>
   </div>
-  <% end %>
-  <div>
-    Total: <%= @patients.all.count %>
-  </div>
-<h1>Listing Patients</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= sort_link @search, :first_name, "First name" %></th>
+        <th><%= sort_link @search, :surname, "Surname" %></th>
+        <th>Gender</th>
+        <th><%= sort_link @search, :age, "Age" %></th>
+        <th>Phone</th>
+        <th>State</th>
+        <th>Lga</th>
+        <th>Intervention state</th>
+        <th><%= sort_link @search, :created_at, "Date Registered" %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th><%= sort_link @search, :first_name, "First name" %></th>
-      <th><%= sort_link @search, :surname, "Surname" %></th>
-      <th>Gender</th>
-      <th><%= sort_link @search, :age, "Age" %></th>
-      <th>Phone</th>
-      <th>State</th>
-      <th>Lga</th>
-      <th>Intervention state</th>
-      <th><%= sort_link @search, :created_at, "Date Registered" %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @patients.each do |patient| %>
+    <tbody>
+      <% @patients.each do |patient| %>
       <tr>
         <td><%= patient.first_name %></td>
         <td><%= patient.surname %></td>
@@ -52,11 +55,12 @@
         <td><%= patient.created_at.strftime("%d/%m/%Y") %></td>
         <td><%= link_to 'Show', patient %></td>
         <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

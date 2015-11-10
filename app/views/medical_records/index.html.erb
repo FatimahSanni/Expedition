@@ -3,41 +3,39 @@
 <%= f.condition_fields do |c| %>
 <div class="form-inline">
   <%= c.attribute_fields do |a| %>
-    <%= a.attribute_select associations: [:patient] %>
+  <%= a.attribute_select associations: [:patient] %>
   <% end %>
   <%= c.predicate_select %>
   <%= c.value_fields do |v| %>
-    <%= v.text_field :value, class: "form-control" %>
-    <% end %>
+  <%= v.text_field :value, class: "form-control" %>
+  <% end %>
 </div> <br>
 <% end %>
 <div class="form-group">
   <%= f.submit "Search", class: "btn btn-success" %>
+  <%= link_to 'Export to CSV', request.parameters.merge({format: :csv}), class: "btn btn-danger" %>
+  <span class="pull-right"><%= link_to 'Add Medical Record', new_medical_record_path, class: "btn btn-danger" %></span>
 </div>
 <% end %>
-<div>
-  Total: <%= @medical_records.all.count %>
-</div>
-<hr>
-<%= link_to 'New Medical record', new_medical_record_path %>
+<br>
+<div class="panel panel-danger">
+  <div class="panel-heading">All Medical Records <span class="pull-right"><strong>Total:</strong> <%= @medical_records.all.count %></span> </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Patient</th>
+        <th>Pre-op VA (RE)</th>
+        <th>Pre-op VA (LE)</th>
+        <th>Diagnosis</th>
+        <th>Eye</th>
+        <th>Treatment</th>
+        <th>Booked</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<h1>Listing Medical Records</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Patient</th>
-      <th>Pre-op VA (RE)</th>
-      <th>Pre-op VA (LE)</th>
-      <th>Diagnosis</th>
-      <th>Eye</th>
-      <th>Treatment</th>
-      <th>Booked</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @medical_records.each do |medical_record| %>
+    <tbody>
+      <% @medical_records.each do |medical_record| %>
       <tr>
         <td><%= medical_record.patient.full_name %></td>
         <td><%= medical_record.pre_rva %></td>
@@ -48,11 +46,12 @@
         <td><%= medical_record.booked %></td>
         <td><%= link_to 'Show', medical_record %></td>
         <td><%= link_to 'Edit', edit_medical_record_path(medical_record) %></td>
-        <td><%= link_to 'Destroy', medical_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', medical_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <%= f.association :patient, label_method: :full_name %>
     <%= f.input :surgery_date %>
-    <%= f.input :surgery, collection: Surgery.all, label_method: :name %>
+    <%= f.input :surgery, collection: Surgery.all, value_method: :name, label_method: :name %>
     <%= f.input :surgeon, collection: Surgeon.all, value_method: :name, label_method: :name %>
     <%= f.input :eye, collection: ["RE", "LE", "Both"] %>
     <%= f.input :average_k %>

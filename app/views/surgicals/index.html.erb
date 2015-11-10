@@ -13,16 +13,16 @@
 <% end %>
 <div class="form-group">
   <%= f.submit "Search", class: "btn btn-success" %>
+  <%= link_to 'Export to CSV', request.parameters.merge({format: :csv}), class: "btn btn-danger" %>
 </div>
 <% end %>
-<div>
-  Total: <%= @surgicals.all.count %>
-</div>
-<hr>
-<%= link_to 'Enter Surgery Details', new_surgical_path %>
+<br>
 
-<h1>Listing Surgeries</h1>
-
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <strong>All Surgery Records</strong>
+    <span class="pull-right"><strong>Total: </strong><%= @surgicals.count %></span>
+  </div>
 <table class="table">
   <thead>
     <tr>
@@ -31,8 +31,6 @@
       <th>Surgery</th>
       <th>Surgeon</th>
       <th>Eye</th>
-      <th>Average k</th>
-      <th>Axial length</th>
       <th>IOL Insertion</th>
       <th>IOL Power</th>
       <th>Complication</th>
@@ -44,14 +42,12 @@
     <% @surgicals.each do |surgical| %>
       <tr>
         <td><%= surgical.patient.full_name %></td>
-        <td><%= surgical.surgery_date %></td>
+        <td><%= surgical.surgery_date.strftime("%d/%m/%Y") %></td>
         <td><%= surgical.surgery %></td>
         <td>
           <%= surgical.surgeon %>
         </td>
         <td><%= surgical.eye %></td>
-        <td><%= surgical.average_k %></td>
-        <td><%= surgical.axial_length %></td>
         <td>
           <%= surgical.iol_insertion %>
         </td>
@@ -62,7 +58,7 @@
         </td>
         <td><%= link_to 'Show', surgical %></td>
         <td><%= link_to 'Edit', edit_surgical_path(surgical) %></td>
-        <td><%= link_to 'Destroy', surgical, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', surgical, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

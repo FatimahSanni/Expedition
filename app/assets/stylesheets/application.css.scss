@@ -14,3 +14,27 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar {
+	
+	border-color: #d9534f;
+	color: #fff;
+}
+
+.navbar-inverse{
+	background: #d43f3a;
+	border-radius: 0px;
+	.navbar-brand{
+		color: #fff;
+	}
+	.navbar-nav li a {
+		color: #fff;
+	}
+}
+
+.dropdown-menu{
+	background: #a6ce39;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{
+	background: #a6ce39;
+}
